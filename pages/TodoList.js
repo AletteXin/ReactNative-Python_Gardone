@@ -1,12 +1,4 @@
-// 1. Create layout Todos - Title & TaskItems
-// 2. Create  Task component to handle styling of TaskItems
-// 3. Create input field with keyboard view on mobile
-// 4. Have useState to input changes 
-// 5. handle taskItems by appending tasks created into array 
-// 6. Map out the array created to list tasks created
-// 7. Deleting a task after completion
-
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import Task from '../components/Task';
 import TodoForm from '../components/TodoForm';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
@@ -15,9 +7,9 @@ import Todobunny from '../components/Todobunny';
 import { useFocusEffect } from '@react-navigation/native';
 
 export default function TodoList() {
+    
     const [todos, setTodos] = useState([]);
     const [token, setToken] = useContext(LoginContext)
-
 
     useFocusEffect(
         React.useCallback(() => {
@@ -31,10 +23,7 @@ export default function TodoList() {
 
             })
         }).then(response => response.json().then(data => {
-
-            console.log(data);
             setTodos(data.todos);
-
         }));
             return () => { 
                 fetch("https://whispering-wildwood-06588.herokuapp.com/todos", {
@@ -44,17 +33,11 @@ export default function TodoList() {
                     },
                     body: JSON.stringify({
                         user_id: token,
-
                     })
                 }).then(response => response.json().then(data => {
-
-                    console.log(data);
                     setTodos(data.todos);
-
                 }));
-                
             };
-
         }, []));
 
     return (
@@ -81,8 +64,8 @@ const styles = StyleSheet.create({
         marginTop: '15%',
         paddingHorizontal: 20,
     },
+
     title: {
-       
             height: 30,
             width: '100%',
             paddingHorizontal: 20,
@@ -90,26 +73,6 @@ const styles = StyleSheet.create({
             fontWeight: '500',
             justifyContent: 'center',
             textAlign: 'center',
+    },
     
-    },
-    input: {
-        paddingVertical: 15,
-        paddingHorizontal: 15,
-        backgroundColor: '#FFF',
-        borderRadius: 250,
-        borderColor: '#C0C0C0',
-        borderWidth: 1,
-        width: 250,
-    },
-    addWrapper: {
-        width: 60,
-        height: 60,
-        backgroundColor: '#FFF',
-        borderRadius: 60,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderColor: '#C0C0C0',
-        borderWidth: 1,
-    },
-    addText: {},
 });

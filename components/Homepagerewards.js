@@ -1,6 +1,6 @@
 
-import React, { useState } from 'react';
-import { StyleSheet, View, ScrollView, TextInput, Button, Image, Text, Pressable, Dimensions } from 'react-native';
+import React from 'react';
+import { StyleSheet, View, Text, Dimensions } from 'react-native';
 
 
 const Homepagerewards = () => {
@@ -11,12 +11,10 @@ const Homepagerewards = () => {
             <View style={styles.subtitle}>
                 <Text style={styles.subtitleText}> YOU'RE DOING WELL. KEEP GOING! </Text>
             </View>
-            
-                <View style={styles.pageBox}>
-                </View>
-                
-        </View>
+            <View style={styles.pageBox}>
+            </View>
 
+        </View>
     )
 };
 
@@ -55,8 +53,6 @@ const styles = StyleSheet.create({
         fontWeight: "500",
         fontStyle: 'italic',
     },
-    // #fdb913
-    // #0000c8
 
     subtitle: {
         height: 46,
@@ -70,6 +66,5 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
 
-    
 
 });

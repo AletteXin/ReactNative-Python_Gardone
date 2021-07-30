@@ -1,33 +1,14 @@
 import React, { useState, useContext } from "react";
-import { Text, View, TextInput, Button, Alert, Form } from "react-native";
-import { useForm, Controller } from "react-hook-form";
+import { Text, View, TextInput, Button } from "react-native";
 import { Formik } from 'formik';
 import { LoginContext } from '../LoginContext';
 
-
 const Adddeadline = ({ setIsModalVisible, setItems }) => {
-    // const { control, handleSubmit, formState: { errors } } = useForm();
-    // const onSubmit = data => console.log(data);
 
     const [token, setToken] = useContext(LoginContext)
-
     const [description, setdescription] = useState('');
     const [subject, setSubject] = useState('');
     const [date, setdate] = useState('');
-
-    // const sendData = (values) => {
-    //     const response = await fetch('/add_deadline', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: values
-    //     })
-
-    //     if (response.ok) {
-    //         console.log('response work')
-    //     }
-    // }
 
     return (
         <Formik
@@ -80,21 +61,14 @@ const Adddeadline = ({ setIsModalVisible, setItems }) => {
                             })
                             console.log("safdsafadsf", newObject)
                             setItems(newObject);
-                            
-
                         }));
-
                     }
                     } />
                 </View>
             )}
         </Formik>
-
-
-
     );
 };
-
 
 export const InputBox = (props) => {
 
@@ -120,7 +94,6 @@ export const InputBox = (props) => {
         </View>
     )
 }
-
 
 export default Adddeadline;
 

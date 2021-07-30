@@ -1,12 +1,7 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import { StyleSheet, View, ScrollView, TextInput, Button, Image, Text, Dimensions } from 'react-native';
+import React from 'react';
+import { StyleSheet, View, ScrollView, Image, Text, Dimensions } from 'react-native';
 
 const FlowerPrevious = ({ previouslist, rewardOutput }) => {
-
-    console.log(previouslist)
-
-
 
     return (
         <View style={styles.layout}>
@@ -31,11 +26,6 @@ const FlowerPrevious = ({ previouslist, rewardOutput }) => {
 };
 
 export default FlowerPrevious;
-
-
-    // #fdb913
-    // #0000c8
-// Styles
 
 const styles = StyleSheet.create({
 
@@ -67,7 +57,6 @@ const styles = StyleSheet.create({
 
     previousRewardCard: {
         width: 150,
-        
         overflow: 'scroll',
         backgroundColor: '#fdb913',
         margin: 16,
@@ -76,7 +65,6 @@ const styles = StyleSheet.create({
         padding: 10,
         paddingVertical: 15,
         borderRadius: 20,
-
     },
 
     previousRewardImage: {
@@ -88,16 +76,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.3,
         shadowRadius: 1,
         shadowOffset: { height: 1, width: 0.3 },
-
     },
-
-    // Style of the box holding the flower
-    flowerBox: {
-        borderWidth: 1,
-        height: 300,
-        width: 300,
-    },
-
 
 });
 

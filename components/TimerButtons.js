@@ -4,7 +4,6 @@ import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 class TimerButtons extends React.Component {
   state = {};
 
-  //renders pause, play and reset buttons
   render() {
     if (this.props.running === true) {
       return (
@@ -38,16 +37,13 @@ class TimerButtons extends React.Component {
   }
 }
 
-
-    // #fdb913
-    // #0000c8
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-evenly",
   },
+
   buttonStart: {
     alignItems: "center",
     backgroundColor: "#fdb913",
@@ -64,13 +60,14 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.20,
     shadowRadius: 1.41,
     elevation: 2,
-
   },
+
   textStart: {
     color: "black",
     fontSize: 16,
     fontWeight: "300",
   },
+
   buttonPause: {
     alignItems: "center",
     backgroundColor: "#fdb913",
@@ -87,13 +84,14 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.20,
     shadowRadius: 1.41,
     elevation: 2,
-
   },
+
   textPause: {
     color: "black",
     fontSize: 16,
     fontWeight: "300",
   },
+
   buttonReset: {
     alignItems: "center",
     backgroundColor: "lightgray",
@@ -102,13 +100,14 @@ const styles = StyleSheet.create({
     width: 120,
     textAlign: 'center',
     margin: 5,
-
   },
+
   textReset: {
     color: "black",
     fontSize: 16,
     fontWeight: "300",
   },
+  
 });
 
 export default TimerButtons;

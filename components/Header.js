@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
     elevation: 5,
     position: "relative",
   },
+
   textStyle: {
     color: "white",
     fontSize: 20,

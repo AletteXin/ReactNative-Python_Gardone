@@ -1,14 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { useState, useContext } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import Navigation from './components/Navigation'
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import Welcome from './pages/Welcome';
 import { createStackNavigator } from '@react-navigation/stack';
-import { LoginProvider, LoginContext } from './LoginContext';
-
+import { LoginContext } from './LoginContext';
 
 export default function Index() {
 
@@ -16,17 +13,10 @@ export default function Index() {
   const [loggedIn, setLoggedIn] = useState(false)
   const [token, setToken] = useContext(LoginContext)
 
-  console.log('token')
-  console.log(typeof token)
-  console.log(LoginContext)
-
-
   return (
     
       <NavigationContainer >
-
         {(typeof token) != 'number' ?
-          // :
           <Stack.Navigator headerMode='none'>
             <Stack.Screen name="Login" component={Login}/>
             <Stack.Screen name="SignUp" component={Signup} />
@@ -51,31 +41,4 @@ const styles = StyleSheet.create({
   },
 
 });
-
-
-
-
-// const MainNavigator = () => (
-
-//   <Tab.Navigator>
-//     <Tab.Screen name="Home" component={HomeScreen} />
-//     <Tab.Screen name="Feed" component={FeedScreen} />
-//     <Tab.Screen name="Catalog" component={CatalogScreen} />
-//     <Tab.Screen name="Account" component={AccountScreen} />
-//   </Tab.Navigator>
-
-// )
-
-// const AppNavigator = () => (
-//   <Stack.Navigator headerMode='none'>
-//     <Stack.Screen name="SignIn" component={SignInScreen} />
-//     <Stack.Screen name="SignUp" component={SignUpScreen} />
-//     <Stack.Screen name="Main" component={MainNavigator} />
-//   </Stack.Navigator>
-
-
-
-
-
-
 

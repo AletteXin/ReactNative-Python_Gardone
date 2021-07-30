@@ -1,5 +1,5 @@
 import React from "react";
-import { Platform, StyleSheet, Text, View, TextInput, Image } from "react-native";
+import { Platform, StyleSheet, View, Image } from "react-native";
 import TimerHeader from "./TimerHeader";
 import TimerDisplay from "./TimerDisplay";
 import TimerButtons from "./TimerButtons";
@@ -14,7 +14,6 @@ class Timer extends React.Component {
     };
   }
 
-  // gets called when a stream of new props arrive from parent component
   componentDidUpdate(nextProps) {
     this.setState({ running: false, time: nextProps.period * 60 });
     if (this.state.running === true && this.state.time == 0) {
@@ -44,7 +43,6 @@ class Timer extends React.Component {
     );
   }
 
-  // Invoked immediately after update occurs
   componentDidUpdate() {
     if (this.state.running === true && this.state.time == 0) {
       clearInterval(this.timerId);
@@ -55,7 +53,6 @@ class Timer extends React.Component {
     }
   }
 
-  // gets triggered when Play button is pressed
   handlePlay = () => {
     this.setState({
       running: true,
@@ -67,7 +64,6 @@ class Timer extends React.Component {
     }, 1000);
   };
 
-  //gets triggered when Pause button is pressed
   handlePause = () => {
     clearInterval(this.timerId);
     this.setState({
@@ -75,7 +71,6 @@ class Timer extends React.Component {
     });
   };
 
-  // gets triggered when Reset button is pressed
   handleReset = () => {
     clearInterval(this.timerId);
     this.setState({
@@ -87,8 +82,6 @@ class Timer extends React.Component {
 
 export default Timer;
 
-
-
 const styles = StyleSheet.create({
   textStyle: {
     color: "#2b6ac2",
@@ -98,7 +91,6 @@ const styles = StyleSheet.create({
     fontFamily: Platform.OS == "android" ? "notoserif" : "system",
     marginTop: 40,
     padding: 20,
-
   },
 
   container: {
@@ -107,7 +99,6 @@ const styles = StyleSheet.create({
     padding: '5%',
     margin: '5%',
     borderRadius: 15,
-
   },
 
   picture: {
@@ -116,6 +107,4 @@ const styles = StyleSheet.create({
     marginTop: '-20%',
     marginRight: '-30%',
   }
-
-
 });

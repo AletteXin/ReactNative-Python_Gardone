@@ -1,6 +1,6 @@
 
-import React, { useState, useContext, useEffect } from 'react';
-import { StyleSheet, View, ScrollView, TextInput, Button, Image, Text, Pressable, Dimensions } from 'react-native';
+import React, { useState, useContext} from 'react';
+import { StyleSheet, View, ScrollView, Text, Dimensions } from 'react-native';
 import { LoginContext } from '../LoginContext';
 import { useFocusEffect } from '@react-navigation/native';
 
@@ -9,29 +9,22 @@ const Homepagekeytask = () => {
     const [latestTodo, setLatesttodo] = useState([])
     const [token, setToken] = useContext(LoginContext)
 
-
     useFocusEffect(
         React.useCallback(() => {
-        fetch("https://whispering-wildwood-06588.herokuapp.com/todolist_homepage", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                user_id: token,
-                date_today: new Date().getDate() + '/' + new Date().getMonth() + '/' + new Date().getFullYear(),
-
-            })
-        }).then(response => response.json().then(data => {
-
-            console.log(data);
-            setLatesttodo(data.todolist_homepage);
-
-        }));
+            fetch("https://whispering-wildwood-06588.herokuapp.com/todolist_homepage", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    user_id: token,
+                    date_today: new Date().getDate() + '/' + new Date().getMonth() + '/' + new Date().getFullYear(),
+                })
+            }).then(response => response.json().then(data => {
+                setLatesttodo(data.todolist_homepage);
+            }));
             return () => { };
-
         }, []));
-
 
     return (
         <View style={styles.layout}>
@@ -44,21 +37,16 @@ const Homepagekeytask = () => {
 
                 {latestTodo.map((todo, index) => {
                     return <View key={index} style={styles.pageBox}>
-                        
+
                         <Text style={styles.boxText}>{todo.todo_text.toUpperCase()}</Text>
                     </View>
                 }).reverse()}
             </ScrollView>
         </View>
-
     )
 };
 
-
 export default Homepagekeytask;
-
-
-// Styles
 
 const styles = StyleSheet.create({
 
@@ -82,14 +70,6 @@ const styles = StyleSheet.create({
         shadowRadius: 1.41,
     },
 
-    title: {
-        fontSize: 16,
-        color: 'black',
-        fontWeight: '500',
-        marginBottom: 10,
-    },
-
-
     subtitleText: {
         fontSize: 14,
         color: 'white',
@@ -98,8 +78,6 @@ const styles = StyleSheet.create({
         fontWeight: "500",
         fontStyle: 'italic',
     },
-    // #fdb913
-    // #0000c8
 
     subtitle: {
         height: 46,
@@ -130,12 +108,6 @@ const styles = StyleSheet.create({
         color: '#0000c8',
         fontWeight: '500',
         fontSize: 14,
-    },
-
-    boxDate: {
-        color: 'gray',
-        fontStyle: 'italic',
-        fontSize: 12,
     },
 
 });

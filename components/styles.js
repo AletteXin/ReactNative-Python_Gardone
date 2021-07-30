@@ -1,10 +1,8 @@
 import styled from 'styled-components/native';
-import { View, Image, Text, TextInput, TouchableOpacity } from 'react-native';
 import Constants from 'expo-constants';
 
 const StatusBarHeight = Constants.statusBarHeight;
 
-// colors
 export const Colors = {
     primary: "white",
     secondary: "#E5E7EB",

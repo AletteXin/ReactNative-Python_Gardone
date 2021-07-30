@@ -1,14 +1,10 @@
-
-import React, { useState, useContext } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
 import Index from './Index.js'
-import { LoginProvider, LoginContext } from './LoginContext';
-
+import { LoginProvider } from './LoginContext';
 
 export default function App() {
 
   return (
-
     <LoginProvider>
       <Index />
     </LoginProvider>

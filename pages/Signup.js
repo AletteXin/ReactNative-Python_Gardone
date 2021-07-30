@@ -2,9 +2,7 @@ import React, { useState, useContext } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Formik } from 'formik';
 import { useNavigation } from '@react-navigation/native';
-// icons
 import { Octicons, Ionicons, Fontisto } from '@expo/vector-icons';
-
 import {
     StyledContainer,
     InnerContainer,
@@ -24,26 +22,17 @@ import {
     ExtraView,
     ExtraText,
     TextLink,
-    TextLinkContent
 } from '../components/styles';
 import { View, TouchableOpacity, Button } from 'react-native';
-
-// DateTimePicker
 import DateTimePicker from '@react-native-community/datetimepicker';
-
 import KeyboardAvoidingWrapper from '../components/KeyboardAvoidingWrapper';
 import { LoginContext } from '../LoginContext';
-
-// colors
 const { brand, darkLight, primary } = Colors;
 
 const Signup = () => {
     const [hidePassword, setHidePassword] = useState(true);
     const [show, setShow] = useState(false);
-    // default date of birth
     const [date, setDate] = useState(new Date(2000, 0, 1));
-
-    // user date of birth selected
     const [dob, setDob] = useState();
 
     const onChange = (event, selectedDate) => {
@@ -58,14 +47,10 @@ const Signup = () => {
     }
 
     const nav = useNavigation();
-
     const [token, setToken] = useContext(LoginContext)
-
     const createAccount = (fullName, email, password) => {
 
-
         fetch('https://whispering-wildwood-06588.herokuapp.com/add_user', {
-
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -78,12 +63,7 @@ const Signup = () => {
             })
         }).then(response => response.json().then(data => {
             setToken(data.user_id);
-            console.log(token)
-            console.log("loggedin")
-            console.log(typeof token)
-            // storeData(data.user_id)
         }))
-
     }
 
     return (
@@ -93,7 +73,6 @@ const Signup = () => {
                 <InnerContainer>
                     <PageTitle>Gardone</PageTitle>
                     <SubTitle>Account Signup</SubTitle>
-
                     {show && (
                         <DateTimePicker
                             testID="dateTimePicker"
@@ -104,7 +83,6 @@ const Signup = () => {
                             onChange={onChange}
                         />
                     )}
-
                     <Formik
                         initialValues={{ fullName: '', email: '', dateOfBirth: '', password: '', confirmPassword: '' }}
                         onSubmit={(values) => {
@@ -124,7 +102,6 @@ const Signup = () => {
                                     onBlur={handleBlur('fullName')}
                                     value={values.fullName}
                                 />
-
                                 <MyTextInput
                                     label="Email Address :"
                                     icon="mail"
@@ -147,7 +124,6 @@ const Signup = () => {
                                     editable={false}
                                     showDatePicker={showDatePicker}
                                 />
-
                                 <MyTextInput
                                     label="Password :"
                                     icon="lock"
@@ -161,7 +137,6 @@ const Signup = () => {
                                     hidePassword={hidePassword}
                                     setHidePassword={setHidePassword}
                                 />
-
                                 <MyTextInput
                                     label="Confirm Password :"
                                     icon="lock"

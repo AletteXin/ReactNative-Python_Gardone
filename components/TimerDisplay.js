@@ -2,7 +2,6 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 class TimerDisplay extends React.Component {
-  // display currently running timer
   render() {
     return (
       <View style={styles.container}>
@@ -21,9 +20,6 @@ class TimerDisplay extends React.Component {
 
 export default TimerDisplay;
 
-    // #fdb913
-    // #0000c8
-
 const styles = StyleSheet.create({
   container: {
     marginBottom: "10%",
@@ -37,8 +33,8 @@ const styles = StyleSheet.create({
     width: 250,
     justifyContent: 'center',
     alignItems: 'center',
-  
   },
+  
   textStyle: {
     color: "#0000c8",
     fontSize: 45,

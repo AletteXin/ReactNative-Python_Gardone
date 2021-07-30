@@ -1,6 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import { StyleSheet, View, ScrollView, TextInput, Button, Image, Text, Pressable, Dimensions } from 'react-native';
+import React from 'react';
+import { StyleSheet, View, Text } from 'react-native';
 
 const RewardTotal = ({ totalPoints }) => {
 
@@ -8,22 +7,11 @@ const RewardTotal = ({ totalPoints }) => {
         <View style={styles.layout}>
             <Text style={styles.totalPointsTitle}> MY TOTAL POINTS </Text>
             <Text style={styles.totalPointsBox}> {totalPoints} </Text>
-
         </View>
-
     )
 };
 
-
-
 export default RewardTotal;
-
-
-    // #fdb913
-    // #0000c8
-
-
-// Styles
 
 const styles = StyleSheet.create({
 
@@ -46,9 +34,6 @@ const styles = StyleSheet.create({
         shadowRadius: 1.41,
     },
 
-    // Style of the box holding the reward
-    
-
     totalPointsBox: {
         fontSize: 40,
         height: 50,
@@ -57,8 +42,6 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
-
-
     },
 
     totalPointsTitle: {
@@ -70,7 +53,6 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
         fontWeight: '500',
-
     }
 });
 

@@ -1,53 +1,35 @@
 
 import React, { useState, useContext } from 'react';
-import { StyleSheet, View, ScrollView, TextInput, Button, Image, Text, Pressable, Dimensions } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import { LoginContext } from '../LoginContext';
 
 const Homepageheader = () => {
 
-
     const [token, setToken] = useContext(LoginContext)
     const [username, setUsername] = useState("")
 
-    
-
     fetch('https://whispering-wildwood-06588.herokuapp.com/user_info', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                user_id: token,
-                
-            })
-        }).then(response => response.json().then(data => {
-            console.log(data.user_info)
-            setUsername(data.user_info[0]);
-        }))
-
-
-
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            user_id: token,
+        })
+    }).then(response => response.json().then(data => {
+        setUsername(data.user_info[0]);
+    }))
 
     return (
         <View style={styles.layout}>
             <Text style={styles.title}>WELCOME TO YOUR GARDONE,</Text>
             <Text style={styles.name}>{username}</Text>
-
         </View>
-
     )
 };
 
-
-
 export default Homepageheader;
 
-
-// #fdb913
-// #0000c8
-
-
-// Styles
 
 const styles = StyleSheet.create({
 
@@ -71,10 +53,6 @@ const styles = StyleSheet.create({
         shadowRadius: 1.5,
     },
 
-    // Style of the box holding the reward
-
-
-    
     title: {
         fontSize: 17,
         color: 'black',
@@ -82,7 +60,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         fontWeight: '500',
-
     },
 
     name: {

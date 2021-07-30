@@ -1,5 +1,4 @@
-import { addDays, format } from 'date-fns';
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { SafeAreaView, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { Agenda } from 'react-native-calendars';
 import { Card, Avatar } from 'react-native-paper';
@@ -34,7 +33,7 @@ const iconselector = (subject) => {
     else if (subject.toLowerCase() == 'hist' || subject.toLowerCase() == 'history') {
         return "history"
     }
-    else  {
+    else {
         return "school"
     }
 }
@@ -45,35 +44,35 @@ const Calendar: React.FC = () => {
 
     const [request, setRequest] = useState([])
 
-    const [items, setItems] = useState < { [key: string]: Item[]} > (
+    const [items, setItems] = useState<{ [key: string]: Item[] }>(
         {
-        '2021-07-27' : [{name: 'test 1', subject: 'english'}]
-    });
+            '2021-07-27': [{ name: 'test 1', subject: 'english' }]
+        });
 
 
     useFocusEffect(
         React.useCallback(() => {
-           fetch("https://whispering-wildwood-06588.herokuapp.com/deadlines", {
-               method: 'POST',
-               headers: {
-                   'Content-Type': 'application/json'
-               },
-               body: JSON.stringify({
-                   user_id: token,
+            fetch("https://whispering-wildwood-06588.herokuapp.com/deadlines", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    user_id: token,
 
-               })
-           }).then(response => response.json().then(data => {
+                })
+            }).then(response => response.json().then(data => {
 
-            console.log(data.deadlines)
-            const newObject = {}
-            data.deadlines.map( deadline => {
-                console.log(deadline.date)
-                newObject[deadline.deadline_date] = [{ name: deadline.description, subject: deadline.subject}]
+                console.log(data.deadlines)
+                const newObject = {}
+                data.deadlines.map(deadline => {
+                    console.log(deadline.date)
+                    newObject[deadline.deadline_date] = [{ name: deadline.description, subject: deadline.subject }]
+                })
+                console.log("safdsafadsf", newObject)
+                setItems(newObject);
             })
-            console.log("safdsafadsf", newObject)
-            setItems(newObject);
-        })
-        );
+            );
             return () => { };
 
         }, []));
@@ -102,8 +101,8 @@ const Calendar: React.FC = () => {
     return (
         <SafeAreaView style={styles.safe}>
             <Agenda
-            items={items}
-            renderItem={renderItem}
+                items={items}
+                renderItem={renderItem}
                 theme={{
                     agendaTodayColor: '#0000c8',
                     agendaDayTextColor: 'gray',
@@ -121,9 +120,6 @@ const Calendar: React.FC = () => {
                     arrowColor: 'orange',
                     monthTextColor: '#0000c8',
                     indicatorColor: '#0000c8',
-                    // textDayFontFamily: 'monospace',
-                    // textMonthFontFamily: 'monospace',
-                    // textDayHeaderFontFamily: 'monospace',
                     textDayFontWeight: '300',
                     textMonthFontWeight: 'bold',
                     textDayHeaderFontWeight: '300',
@@ -132,7 +128,7 @@ const Calendar: React.FC = () => {
                     textDayHeaderFontSize: 16,
                 }}
             />
-            <ModalAdddeadline setItems = {setItems}/>
+            <ModalAdddeadline setItems={setItems} />
         </SafeAreaView>
     );
 };

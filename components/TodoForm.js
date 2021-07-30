@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import {
     TouchableOpacity,
     KeyboardAvoidingView,
@@ -11,44 +11,31 @@ import {
 } from 'react-native';
 import { LoginContext } from '../LoginContext';
 
-
-
 const TodoForm = ({ todos, setTodos }) => {
-    // taking taskItems and appending it to an array //
     const [taskItems, setTaskItems] = useState('');
     const [token, setToken] = useContext(LoginContext)
-
 
     const handleSubmit = () => {
         if (taskItems.trim().length != 0) {
             fetch("https://whispering-wildwood-06588.herokuapp.com/add_todo", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    user_id: token,
+                    todo_text: taskItems,
+                })
+            }).then(response => response.json().then(data => {
 
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        user_id: token,
-                        todo_text: taskItems,
-                    })
-                }).then(response => response.json().then(data => {
+                Keyboard.dismiss();
+                setTodos(data.todos);
+                setTaskItems("")
+                textInput.clear();
 
-                    console.log(data);
-                    Keyboard.dismiss();
-                    setTodos(data.todos);
-                    setTaskItems("")
-                    textInput.clear();
-
-                }));
+            }));
         }
     }
-
-
-
-    // const keyboardVerticalOffset = Platform.OS === 'ios' ? 80 : 0
-
-    // return (
-    //     <KeyboardAvoidingView behavior='position' keyboardVerticalOffset={keyboardVerticalOffset}>
 
     return (
 
@@ -60,7 +47,6 @@ const TodoForm = ({ todos, setTodos }) => {
                     onChangeText={text => setTaskItems(text.trim())}
                     ref={input => { textInput = input }}
                 />
-                {/* Button */}
                 <TouchableOpacity onPress={() => handleSubmit()}>
                     <View style={styles.addWrapper}>
                         <Text style={styles.addText}>+</Text>
@@ -79,6 +65,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
+
     input: {
         paddingVertical: 15,
         paddingHorizontal: 15,
@@ -89,6 +76,7 @@ const styles = StyleSheet.create({
         width: 250,
         marginHorizontal: 10,
     },
+
     addWrapper: {
         width: 50,
         height: 50,
@@ -99,6 +87,7 @@ const styles = StyleSheet.create({
         borderColor: '#fdb913',
         borderWidth: 1,
     },
+
     addText: {
         fontSize: 25,
         color: '#0000c8',
@@ -107,9 +96,6 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
     }
-
-    // #fdb913
-    // #0000c8
 
 });
 

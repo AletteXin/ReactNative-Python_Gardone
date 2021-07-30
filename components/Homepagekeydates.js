@@ -1,6 +1,6 @@
 
-import React, { useState, useContext, useEffect } from 'react';
-import { StyleSheet, View, ScrollView, TextInput, Button, Image, Text, Pressable, Dimensions } from 'react-native';
+import React, { useState, useContext} from 'react';
+import { StyleSheet, View, ScrollView, Text, Dimensions } from 'react-native';
 import { LoginContext } from '../LoginContext';
 import { useFocusEffect } from '@react-navigation/native';
 
@@ -10,78 +10,53 @@ const Homepagekeydates = () => {
     const [latestDeadline, setLatestdeadline] = useState([])
     const [token, setToken] = useContext(LoginContext)
 
+    const month_today = new Date().getMonth() + 1
+
     useFocusEffect(
         React.useCallback(() => {
-        fetch("https://whispering-wildwood-06588.herokuapp.com/deadline_homepage", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                user_id: token,
-                date_today: new Date().getFullYear() + '- 07 -' + new Date().getDate(),
-
-            })
-        }).then(response => response.json().then(data => {
-
-            console.log(data);
-            setLatestdeadline(data.deadline_homepage);
-
-        }));
+            fetch("https://whispering-wildwood-06588.herokuapp.com/deadline_homepage", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    user_id: token,
+                    date_today: new Date().getFullYear() + '-' + month_today + '-' + new Date().getDate(),
+                })
+            }).then(response => response.json().then(data => {
+                setLatestdeadline(data.deadline_homepage);
+            }));
             return () => { };
-
         }, []));
-
-        // function calculateDays(deadlineDate){
-        //     const dateToday = Date()
-        //     const dateTarget = deadlineDate
-        //     const Difference_In_Time = dateTarget.getTime() - dateToday.getTime();
-        //     const Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
-            
-        //     if (Difference_In_Days > 0){
-        //         return Difference_In_Days}
-            
-        //     else {
-        //         return "Today"
-        //     }
-            
-
-        // }
 
     return (
         <View style={styles.layout}>
-
             <View style={styles.subtitle}>
                 <Text style={styles.subtitleText}>YOUR UPCOMING KEY DATES</Text>
             </View>
-
             <ScrollView>
-
                 {latestDeadline.map((deadline, index) => {
                     return <View key={index} style={styles.display}>
-                        
+
                         <View style={styles.line}></View>
                         <View style={styles.circle}>
-                        <Text style={styles.date}> {deadline.date} </Text>
+                            <Text style={styles.date}> {deadline.date} </Text>
                         </View>
 
                         <View style={styles.rectangle}>
-                        <Text style={styles.subject}>{deadline.subject.toUpperCase()}</Text>
-                        <Text style={styles.description}>{deadline.description}</Text>
+                            <Text style={styles.subject}>{deadline.subject.toUpperCase()}</Text>
+                            <Text style={styles.description}>{deadline.description}</Text>
+
                         </View>
                     </View>
                 })}
             </ScrollView>
         </View>
-
     )
 };
 
-
 export default Homepagekeydates;
 
-
-// Styles
 const styles = StyleSheet.create({
 
     layout: {
@@ -104,14 +79,6 @@ const styles = StyleSheet.create({
         shadowRadius: 1.41,
     },
 
-    title: {
-        fontSize: 16,
-        color: 'black',
-        fontWeight: '500',
-        marginBottom: 10,
-    },
-
-
     subtitleText: {
         fontSize: 14,
         color: 'white',
@@ -120,8 +87,6 @@ const styles = StyleSheet.create({
         fontWeight: "500",
         fontStyle: 'italic',
     },
-    // #fdb913
-    // #0000c8
 
     subtitle: {
         height: 46,
@@ -133,13 +98,6 @@ const styles = StyleSheet.create({
         paddingVertical: 7,
         borderRadius: 20,
         alignItems: 'center',
-    },
-
-    pageBox: {
-        height: 80,
-        width: 220,
-        backgroundColor: 'lightgray',
-
     },
 
     circle: {
@@ -176,12 +134,10 @@ const styles = StyleSheet.create({
     subject: {
         fontSize: 14,
         fontWeight: '500',
-
     },
 
     description: {
         fontSize: 14,
-
     },
 
     date: {

@@ -1,6 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
-import React, {useContext, useState} from 'react';
-import { StyleSheet, Text, View, ScrollView, Button, Pressable } from 'react-native';
+import React, {useContext } from 'react';
+import { StyleSheet, Text, View, ScrollView, Pressable } from 'react-native';
 import Homepagekeytask from '../components/Homepagekeytask';
 import Homepagekeydates from '../components/Homepagekeydates';
 import Homepagerewards from '../components/Homepagerewards';
@@ -19,7 +18,6 @@ const Homepage = () => {
         console.log("token")
     }
 
-
     return (
         <ScrollView contentContainerStyle={styles.layout}>
             <Homepagecircle />
@@ -36,7 +34,6 @@ const Homepage = () => {
 
 export default Homepage;
 
-
 const styles = StyleSheet.create({
     layout: {
         flexGrow: 3,
@@ -44,22 +41,6 @@ const styles = StyleSheet.create({
         margin: "5%",
         justifyContent: 'center',
         alignItems: 'center',
-    },
-
-    homepageheader: {
-        color: 'white',
-        fontWeight: "800",
-        fontSize: 35,
-        marginLeft: '5%',
-
-    },
-
-    homepageheaderbox: {
-        justifyContent: 'center',
-        backgroundColor: '#fdb913',
-        padding: 15,
-        paddingTop: 60,
-
     },
 
     logoutbutton: {

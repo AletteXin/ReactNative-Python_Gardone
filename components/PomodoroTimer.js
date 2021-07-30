@@ -12,7 +12,6 @@ class PomodoroTimer extends React.Component {
     };
   }
 
-  // handles completion of timer
   handleTimerCompleted = () => {
     if (this.state.intervalType === "Working") {
       this.setState({
@@ -25,7 +24,6 @@ class PomodoroTimer extends React.Component {
     }
   };
 
-  // gets triggered on change of worktimer text
   handleWorkTime = (text) => {
     if (text >= 0) {
       this.setState({
@@ -39,7 +37,6 @@ class PomodoroTimer extends React.Component {
     }
   };
 
-  // gets triggered on change of breaktimer text
   handleBreakTime = (text) => {
     if (text >= 0) {
       this.setState({
@@ -53,7 +50,6 @@ class PomodoroTimer extends React.Component {
     }
   };
 
-  // called to set the timer's time
   handleTime = () => {
     if (this.state.intervalType === "Working") {
       return this.state.workTime;
@@ -61,7 +57,6 @@ class PomodoroTimer extends React.Component {
       return this.state.breakTime;
     }
   };
-
 
 
   render() {
@@ -76,7 +71,6 @@ class PomodoroTimer extends React.Component {
           period={time}
           style={styles.container}
         />
-        
         <Text style={styles.settingsText} >SETTINGS</Text>
         <View style={styles.row}>
           <View style={styles.inputWrap}>
@@ -119,6 +113,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginHorizontal: '2%',
   },
+
   inputWrap: {
     flex: 1,
     marginHorizontal: '2%',
@@ -126,6 +121,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'lightgray',
     padding: 20,
   },
+  
   textStyle: {
     fontSize: 16,
     fontWeight: "500",
@@ -147,11 +143,7 @@ const styles = StyleSheet.create({
     marginHorizontal: '5%',
     fontSize: 16,
     fontWeight: "500",
-
   },
 
 });
 
-
-// // #fdb913
-// // #0000c8
