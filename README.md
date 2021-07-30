@@ -3,8 +3,7 @@
 ## Overview
 Gardone is a productivity mobile application. Users are able to create to-do lists, manage a calendar, use a Pomodoro timer and get motivated by the internal reward system. 
 
-ReactNative_Gardone was coded as part of the NEXT Academy Full Stack Web Development Bootcamp. Eager to take on a challenge, the team proceeded to venture into the mobile application territory. 
-
+ReactNative_Gardone was coded as part of the NEXT Academy Full Stack Web Development Bootcamp. 
 
 ## Technologies Used
 Frontend: 
