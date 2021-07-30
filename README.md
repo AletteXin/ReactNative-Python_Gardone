@@ -14,7 +14,7 @@ Backend:
 - Flask-Python
 - SQLAlchemy 
 
-Link to backend github repository: 
+Link to backend github repository: https://github.com/lobiplayer/2021-07-23_studentprojecttool_flask
 
 
 ## Screenshots
