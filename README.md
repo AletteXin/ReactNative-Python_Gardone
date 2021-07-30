@@ -19,8 +19,7 @@ Link to backend github repository:
 
 ## Screenshots
 
-<img src="https://user-images.githubusercontent.com/85789376/127609299-5d387b6c-ec2a-4e27-b603-8605b9985bdd.PNG" height="300">
-<img src="https://user-images.githubusercontent.com/85789376/127609308-b52a4486-fdbd-403a-8250-b660109fb172.PNG" height="300">
+<img src="https://user-images.githubusercontent.com/85789376/127609299-5d387b6c-ec2a-4e27-b603-8605b9985bdd.PNG" height="300"> <img src="https://user-images.githubusercontent.com/85789376/127609308-b52a4486-fdbd-403a-8250-b660109fb172.PNG" height="300">
 <img src="https://user-images.githubusercontent.com/85789376/127609290-1e970fb7-b942-440f-bf96-71a7deedc553.PNG" height="300">
 <img src="https://user-images.githubusercontent.com/85789376/127609350-f2ea4e2c-d558-42f1-9e26-3f6a0724b700.PNG" height="300">
 <img src="https://user-images.githubusercontent.com/85789376/127609347-381656eb-98fc-429e-84d6-c800406c9192.PNG" height="300">
