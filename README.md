@@ -1,12 +1,19 @@
 # GARDONE 
 
 ## Overview
+Gardone is a productivity mobile application. 
 
-
-
+ReactNative_Gardone was coded as part of the NEXT Academy Full Stack Web Development Bootcamp. Eager to take on a challenge, the team proceeded to venture into the mobile application territory. 
 
 ## Technologies Used
+Frontend: 
 - Expo - 5.0.3
+
+Backend: 
+- Flask-Python
+- SQLAlchemy 
+
+Link to backend github repository: 
 
 ## Screenshots
 
