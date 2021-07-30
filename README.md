@@ -19,9 +19,9 @@ Link to backend github repository:
 
 ## Screenshots
 
-![Gardone_Signup](https://user-images.githubusercontent.com/85789376/127609299-5d387b6c-ec2a-4e27-b603-8605b9985bdd.PNG | width=100)
-![Gardone_Login](https://user-images.githubusercontent.com/85789376/127609308-b52a4486-fdbd-403a-8250-b660109fb172.PNG | width=100)
-![Gardone_Homepage](https://user-images.githubusercontent.com/85789376/127609290-1e970fb7-b942-440f-bf96-71a7deedc553.PNG | width=100)
+![Gardone_Signup](https://user-images.githubusercontent.com/85789376/127609299-5d387b6c-ec2a-4e27-b603-8605b9985bdd.PNG) {:height="50%" width="50%"}
+![Gardone_Login](https://user-images.githubusercontent.com/85789376/127609308-b52a4486-fdbd-403a-8250-b660109fb172.PNG)
+![Gardone_Homepage](https://user-images.githubusercontent.com/85789376/127609290-1e970fb7-b942-440f-bf96-71a7deedc553.PNG)
 ![Gardone_Homepage2](https://user-images.githubusercontent.com/85789376/127609350-f2ea4e2c-d558-42f1-9e26-3f6a0724b700.PNG)
 ![Gardone_Timer](https://user-images.githubusercontent.com/85789376/127609347-381656eb-98fc-429e-84d6-c800406c9192.PNG)
 ![Gardone_Calendar](https://user-images.githubusercontent.com/85789376/127609346-62f64068-c37c-46c8-bcdb-867069bd2a69.PNG)
