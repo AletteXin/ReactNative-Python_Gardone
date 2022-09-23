@@ -10,7 +10,7 @@ Frontend:
 - Expo - 5.0.3
 
 Backend: 
-- Flask-Python
+- Flask
 - SQLAlchemy 
 
 Link to backend github repository: https://github.com/lobiplayer/2021-07-23_studentprojecttool_flask
@@ -23,5 +23,5 @@ Link to backend github repository: https://github.com/lobiplayer/2021-07-23_stud
 
 ## Acknowledgements
 
-This project was completed by a team of four in the NEXT Academy Full Stack Bootcamp. Team members include Robin (lobinplayer), Ariz (arizdanial), Keng Fai (TikeMysonn) and AletteXin (AletteXin). 
+This project was a collaboration between Robin (lobinplayer), Ariz (arizdanial), Keng Fai (TikeMysonn) and Alette Ng (AletteXin). 
 
